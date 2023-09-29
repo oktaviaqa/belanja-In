@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <a href="/login">LOGIN</a> || <a href="/register">REGISTER</a>
+    <h1></h1>
+    <% if (status) { %>
+    <h1><%= status %></h1>
+    <% } %>
+    <a href="/register/driver">Driver</a> || <a href="/register/client">Client</a>
+    <% if (role) { %>
+    <form action="/register/<%= role %>" method="post">
+        <table border = "1">
+            <tr>
+                <td>
+                    Email : 
+                    <input type="text" name ="email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    First Name : 
+                    <input type="text" name ="firstName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name : 
+                    <input type="text" name ="lastName"/>
+                </td>
+            </tr>
+            <% if (role != 'driver') { %>
+                <tr>
+                    <td>
+                        Address : 
+                        <input type="text" name="address"/>
+                    </td>
+                </tr>        
+            <% } %>
+            <tr>
+                <td>
+                    User : 
+                    <input type="text" name ="user"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password : 
+                    <input type="password" name="password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type = "submit">Registed</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <% } %>
+</body>
+</html>

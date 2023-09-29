@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <a href="/login">LOGIN</a> || <a href="/register">REGISTER</a> 
+    <h1></h1>
+    <% if (error) { %>
+    <h1><%= error %></h1>
+    <% } %>
+    <form action="/home" method="post">
+        <table border = "1">
+            <tr>
+                <td>
+                    User : 
+                    <input type="text" name ="user"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password : 
+                    <input type="password" name="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type = "submit">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    <h1>Hi ! Driver <%= dataUser.firstName + " " + dataUser.lastName %></h1>
+    <% if (data.length != 0) {%>
+        <form action="/takeorder" method="post">
+            <table border = "1">
+                <tr>
+                    <td>
+                        Id
+                    </td>
+                    <td>
+                        Detail Order
+                    </td>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        Total Item
+                    </td>
+                    <td>
+                        Total Price
+                    </td>
+                    <td>
+                        Action Take
+                    </td>
+                </tr>
+                <% data.forEach(element => { %>
+                    <tr>
+                        <td>
+                            <%= element.id %>
+                        </td>
+                        <td>
+                            <%= element.detailOrder %>
+                        </td>
+                        <td>
+                            <%= element.Client.address %>
+                        </td>
+                        <td>
+                            <%= element.totalItem %>
+                        </td>
+                        <td>
+                            <%= element.totalPrice %>
+                        </td>
+                        <td>
+                            <input type="radio" name ="<%= element.id %>" value = "true"> True </input>
+                            <input type="radio" name ="<%= element.id %>" value = "false" checked> False </input>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+            <button type="submit">Sumbit</button>
+        </form>
+    <% } else { %>
+        List order empty
+    <% } %>
+</body>
+</html>

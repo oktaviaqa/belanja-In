@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    <h1>Hi ! Client <%= dataUser.firstName + " " + dataUser.lastName %></h1>
+    <form action="/order" method="post">
+        <table border = "1">
+            <tr>
+                <td>
+                    Id
+                </td>
+                <td>
+                    Store
+                </td>
+                <td>
+                    Descption
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    How Many
+                </td>
+            </tr>
+            <% if (store.length != 0) { %>
+                <% store.forEach(element => { %>
+                    <tr>
+                        <td>
+                            <%= element.id %>
+                        </td>
+                        <td>
+                            <%= element.name %>
+                        </td>
+                        <td>
+                            <%= element.description %>
+                        </td>
+                        <td>
+                            <%= element.toRupiah %>
+                        </td>
+                        <td>
+                            <input type="number" name = "<%= element.id %>">
+                        </td>
+                    </tr> 
+                <% }); %>
+            <% } %>
+        </table>
+        <button type = 'submit'>
+            Click
+        </button>
+    </form>
+</body>
+</html>
